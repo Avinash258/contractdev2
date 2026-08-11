@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VaultMesh</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <span class="mark">VM</span>
+        <div>
+          <strong>VaultMesh</strong>
+          <p>GraphQL + gRPC banking contracts</p>
+        </div>
+      </div>
+      <nav class="tabs" role="tablist">
+        <button type="button" data-tab="dashboard" class="active">Dashboard</button>
+        <button type="button" data-tab="playground">GraphQL playground</button>
+        <button type="button" data-tab="contracts">Contracts</button>
+      </nav>
+      <div id="session-meta" class="session-meta"></div>
+    </header>
+
+    <main>
+      <section id="tab-dashboard" class="panel active">
+        <div id="login-card" class="card">
+          <h1>Sign in</h1>
+          <p class="lede">Same demo identity as FinVault. GraphQL is the website API; gRPC is the core ledger.</p>
+          <form id="login-form">
+            <label>Email <input id="email" type="email" value="demo@fintech.com" required /></label>
+            <label>Password <input id="password" type="password" value="demo123" required /></label>
+            <button type="submit">Login via GraphQL</button>
+            <p id="login-error" class="error" hidden></p>
+          </form>
+        </div>
+
+        <div id="app-card" class="layout" hidden>
+          <section class="card">
+            <h2>Accounts</h2>
+            <div id="accounts" class="accounts"></div>
+          </section>
+          <section class="card">
+            <h2>Transfer</h2>
+            <form id="transfer-form" class="stack">
+              <label>From
+                <select id="from-account"></select>
+              </label>
+              <label>To
+                <select id="to-account"></select>
+              </label>
+              <label>Amount
+                <input id="amount" type="number" min="0.01" step="0.01" value="25" required />
+              </label>
+              <button type="submit">Send via GraphQL mutation</button>
+              <p id="transfer-msg" class="muted"></p>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section id="tab-playground" class="panel">
+        <div class="card">
+          <h2>GraphQL playground</h2>
+          <p class="lede">POST <code>/graphql</code> — this is the GraphQL contract endpoint.</p>
+          <textarea id="gql-query" rows="14">query Accounts {
+  accounts {
+    id
+    name
+    currency
+    balance
+  }
+}</textarea>
+          <div class="row">
+            <button type="button" id="run-query">Run</button>
+            <span class="muted">Uses the signed-in Bearer token when present.</span>
+          </div>
+          <pre id="gql-result" class="result"></pre>
+        </div>
+      </section>
+
+      <section id="tab-contracts" class="panel">
+        <div class="card">
+          <h2>What to contract-test</h2>
+          <dl class="defs">
+            <dt>Website / GraphQL</dt>
+            <dd><a href="/">http://localhost:4000</a> · <a href="/graphql">POST /graphql</a> · <a href="/schema.graphql">schema.graphql</a></dd>
+            <dt>gRPC core</dt>
+            <dd><code>localhost:50051</code> · <a href="/proto/vaultmesh.proto">vaultmesh.proto</a> · unary Login, ListAccounts, GetAccount, Transfer</dd>
+            <dt>Health</dt>
+            <dd><a href="/health">/health</a></dd>
+          </dl>
+          <pre id="health-result" class="result">Checking health…</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>VaultMesh v1</span>
+      <span>Consumer: VaultMesh-Web</span>
+      <span>Providers: VaultMesh-GraphQL · VaultMesh-Core</span>
+    </footer>
+    <script src="/app.js"></script>
+  </body>
+</html>

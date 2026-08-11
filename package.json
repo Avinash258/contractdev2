@@ -1,0 +1,33 @@
+{
+  "name": "contract-testing-graphql",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VaultMesh — GraphQL + gRPC app and contract tests",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node tests/contract/run-vaultmesh.js --no-start",
+    "test:against": "node tests/contract/run-vaultmesh.js --no-start",
+    "test:contract": "node tests/contract/run-vaultmesh.js",
+    "test:consumer": "node tests/contract/run-vaultmesh.js --consumer-only"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.6",
+    "@grpc/proto-loader": "^0.7.13",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "graphql": "^16.10.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@pact-foundation/pact": "^16.5.0",
+    "axios": "^1.17.0",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2"
+  }
+}

@@ -1,0 +1,37 @@
+# VaultMesh GraphQL contract (source of truth).
+# Additive fields only. Do not rename, remove, or change types without a version bump.
+
+type User {
+  id: ID!
+  email: String!
+  name: String!
+}
+
+type Account {
+  id: ID!
+  name: String!
+  currency: String!
+  balance: Float!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type TransferResult {
+  id: ID!
+  status: String!
+  amount: Float!
+}
+
+type Query {
+  me: User
+  accounts: [Account!]!
+  account(id: ID!): Account
+}
+
+type Mutation {
+  login(email: String!, password: String!): AuthPayload!
+  transfer(fromAccountId: ID!, toAccountId: ID!, amount: Float!): TransferResult!
+}

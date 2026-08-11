@@ -1,0 +1,9 @@
+node_modules/
+reports/
+logs/
+.env
+*.log
+pacts/graphql/*.json
+pacts/grpc/*.json
+!pacts/graphql/.gitkeep
+!pacts/grpc/.gitkeep

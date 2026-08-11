@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package vaultmesh.v1;
+
+// VaultMesh gRPC contract (source of truth).
+// Compatibility: never reuse field numbers; additive fields only; enums append-only.
+
+service AuthService {
+  rpc Login (LoginRequest) returns (LoginReply);
+}
+
+service AccountService {
+  rpc ListAccounts (ListAccountsRequest) returns (ListAccountsReply);
+  rpc GetAccount (GetAccountRequest) returns (Account);
+}
+
+service PaymentService {
+  rpc Transfer (TransferRequest) returns (TransferReply);
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginReply {
+  string token = 1;
+  User user = 2;
+}
+
+message User {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+}
+
+message ListAccountsRequest {}
+
+message ListAccountsReply {
+  repeated Account accounts = 1;
+}
+
+message GetAccountRequest {
+  string id = 1;
+}
+
+message Account {
+  string id = 1;
+  string name = 2;
+  string currency = 3;
+  double balance = 4;
+}
+
+message TransferRequest {
+  string from_account_id = 1;
+  string to_account_id = 2;
+  double amount = 3;
+}
+
+message TransferReply {
+  string id = 1;
+  string status = 2;
+  double amount = 3;
+}
