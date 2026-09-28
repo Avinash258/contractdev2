@@ -1,8 +1,8 @@
 # Contract Testing Framework (`contractdev2`)
 
-Consumer-driven **contract testing** for GraphQL + gRPC style services — broker-style verification and CI-oriented gates.
+Consumer-driven **contract testing** for GraphQL + gRPC style services â€” broker-style verification and CI-oriented gates.
 
-> Package name: `contract-testing-graphql` · [Portfolio](https://avinash258.github.io/Protfolio/)
+> Package name: `contract-testing-graphql` Â· [Portfolio](https://avinash258.github.io/Protfolio/)
 
 ## Overview
 
@@ -18,10 +18,10 @@ Proof-of-concept and reference setup for service-boundary verification: consumer
 
 ## Stack
 
-- JavaScript · Node.js
-- Jest · Babel
+- JavaScript Â· Node.js
+- Jest Â· Babel
 - Pact / contract checks
-- GraphQL · gRPC samples
+- GraphQL Â· gRPC samples
 
 ## Getting started
 
@@ -47,5 +47,5 @@ docs/     walkthrough notes
 
 ## Author
 
-**Pushanshu Avinash Sharma** — QA Automation Architect / Lead SDET  
-[GitHub](https://github.com/Avinash258) · [LinkedIn](https://www.linkedin.com/in/p-avinash-sharma-8b0203b9/) · [Portfolio](https://avinash258.github.io/Protfolio/)
+**Avinash Sharma** â€” QA Automation Architect / Lead SDET  
+[GitHub](https://github.com/Avinash258) Â· [LinkedIn](https://www.linkedin.com/in/p-avinash-sharma-8b0203b9/) Â· [Portfolio](https://avinash258.github.io/Protfolio/)
