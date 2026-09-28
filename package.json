@@ -28,6 +28,6 @@
     "@pact-foundation/pact": "^16.5.0",
     "axios": "^1.17.0",
     "babel-jest": "^30.4.1",
-    "jest": "^30.4.2"
+    "jest": "^30.5.2"
   }
 }
