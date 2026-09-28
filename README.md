@@ -1,42 +1,51 @@
-# VaultMesh — GraphQL + gRPC contract testing
+# Contract Testing Framework (`contractdev2`)
 
-**Project folder**
+Consumer-driven **contract testing** for GraphQL + gRPC style services — broker-style verification and CI-oriented gates.
 
-```
-C:\Project\contractTestingGraphQl
-```
+> Package name: `contract-testing-graphql` · [Portfolio](https://avinash258.github.io/Protfolio/)
 
-Start the app here, leave it running, then run tests against it.
+## Overview
 
-## 1. Start the application
+Proof-of-concept and reference setup for service-boundary verification: consumers publish expectations, providers verify against them, and failures surface before UI suites run. Includes Pact-style flows, sample schemas, and a small UI for exploration.
 
-Double-click `START.bat`, or:
+## Features
+
+- Consumer and provider contract test scripts
+- GraphQL schema + gRPC / protobuf samples under `proto/`
+- Published pact artifacts under `pacts/`
+- Jest-based runners with dedicated contract scripts
+- Docs and start helpers for local demos
+
+## Stack
+
+- JavaScript · Node.js
+- Jest · Babel
+- Pact / contract checks
+- GraphQL · gRPC samples
+
+## Getting started
 
 ```bash
-cd C:\Project\contractTestingGraphQl
 npm install
-npm start
-```
-
-Leave that window open.
-
-| Surface | URL |
-|---------|-----|
-| Website | http://localhost:4000 |
-| GraphQL | `POST http://localhost:4000/graphql` |
-| gRPC | `localhost:50051` |
-
-Login: `demo@fintech.com` / `demo123`
-
-## 2. Run tests against that running app
-
-Double-click `RUN-TESTS.bat` in the **same folder**, or:
-
-```bash
-cd C:\Project\contractTestingGraphQl
+npm start          # run local app helpers (see START.bat on Windows)
 npm test
+npm run test:contract
+npm run test:consumer
+npm run test:against
 ```
 
-`npm test` does **not** start or stop the app. If VaultMesh is down, tests fail and tell you to run `START.bat`.
+## Project layout
 
-Design: [`docs/VAULTMESH_DESIGN.md`](docs/VAULTMESH_DESIGN.md)
+```
+src/      application / provider code
+tests/    consumer & contract suites
+pacts/    generated pact files
+proto/    gRPC definitions
+ui/       lightweight UI
+docs/     walkthrough notes
+```
+
+## Author
+
+**Pushanshu Avinash Sharma** — QA Automation Architect / Lead SDET  
+[GitHub](https://github.com/Avinash258) · [LinkedIn](https://www.linkedin.com/in/p-avinash-sharma-8b0203b9/) · [Portfolio](https://avinash258.github.io/Protfolio/)
